@@ -1,0 +1,420 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #F5F5F7;
+    margin: 0px;
+    font-family:微軟正黑體;
+    text-align: center;
+    /*font-style: oblique;*/
+    font-weight: bold;
+}
+
+header{
+    background-color:#EDDFE0;
+    margin: 0px;
+    padding: 20px;
+    text-align: center;
+    font-style: oblique;
+}
+
+h3{
+    background-color: #feee91;
+    font-style: oblique;
+}
+
+h2{
+    background-color: #ffdc7f;
+    width: 150px;
+    height: auto; /* 自动高度以适应文本 */
+    border-radius: 15px;
+    font-style: oblique;
+    margin: 0; /* 确保没有额外的边距 */
+    padding: 10px 0; /* 添加一些内边距以提升可读性 */
+}
+
+nav{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #444444;
+    background-color: white;
+    font-style:oblique;
+    font-weight: bold;
+}
+nav a{
+    padding: 20px 20px;
+    display: block;
+    text-decoration: none; /* 去除链接下划线 */
+}
+
+nav a:hover{
+    background-color: #c4d7ff;
+    color: white;
+
+}
+
+footer{
+    background-color: #F5F5F7;
+    text-align: center;
+    color: #444444;
+    padding: 10px;
+}
+
+main{
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 10px;
+    border-radius: 15px;
+    text-align: center; /* 让内容居中对齐 */
+}
+article{
+    float: right;
+    width: 73%;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+aside{
+    float: left;
+    width: 25%;
+    left: 0;
+    text-align: center;
+    background-color: beige;
+    padding: 20px 0; /* 讓內容在 aside 中垂直置中 */
+    height: 100vh; /* 讓 aside 從頂部延伸到視窗底部 */
+}
+
+img {
+    border-radius: 8%; /* 圆角 */
+}
+
+.bar-chart {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.bar {
+    position: relative;
+    background-color: #6c8ebf;
+    color: rgb(173, 219, 227);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    width: 0;
+    animation: growBar 2s forwards; /* 動畫效果 */
+}
+
+/* 提示框樣式 */
+.tooltip {
+    position: absolute;
+    bottom: 100%; /* 提示框在長條上方 */
+    right: 0;
+    transform: translateX(5%);
+
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap; /* 避免文字換行 */
+    display: none; /* 默認隱藏 */
+    z-index: 10; /* 確保在最上層 */
+}
+
+/* 顯示提示框 */
+.bar:hover .tooltip {
+    display: block; /* 懸停時顯示 */
+}
+
+
+/* 定義每個長條的最終寬度 */
+.Python { width: 79%; animation-delay: 0.5s; }
+.Java { width: 72%; animation-delay: 1s; }
+.HTML { width: 78%; animation-delay: 1.5s; }
+.CSS { width: 75%; animation-delay: 2s; }
+
+/* 長條圖增長動畫 */
+@keyframes growBar {
+    from { width: 0; }
+    to { width: var(--bar-width); }
+}
+
+.charts-container {
+    display: flex; /* 使用 Flexbox */
+    justify-content: center; /* 平均分配空間 */
+    align-items: center; /* 垂直居中對齊 */
+    margin: 20px 0; /* 設定上下邊距 */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.chart {
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(174, 172, 172);
+    z-index: 10;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 20;
+    animation: growBar 5s forwards; /* 動畫效果 */
+}
+
+.circle-background {
+    stroke: #e6e6e6;
+}
+
+.circle-foreground {
+    fill: none;
+    stroke: #ffbd73;
+    stroke-width: 15;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dasharray 2s ease;
+}
+
+@keyframes progress-excel {
+    from {
+        stroke-dashoffset: 439.82; /* 初始状态 */
+    }
+    to {
+        stroke-dashoffset: 97.96; /* 对应的比例 (100 - 78%) */
+    }
+}
+
+@keyframes progress-ppt {
+    from {
+        stroke-dashoffset: 439.82; /* 初始状态 */
+    }
+    to {
+        stroke-dashoffset: 78.41; /* 对应的比例 (100 - 82%) */
+    }
+}
+
+@keyframes progress-word {
+    from {
+        stroke-dashoffset: 439.82; /* 初始状态 */
+    }
+    to {
+        stroke-dashoffset: 51.38; /* 对应的比例 (100 - 88%) */
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%); /* 從左側進入 */
+        opacity: 0; /* 初始不透明度 */
+    }
+    to {
+        transform: translateX(0); /* 最終位置 */
+        opacity: 1; /* 最終不透明度 */
+    }
+}
+
+.slogon{
+    font-size: 20px;
+    text-align: center;
+    color: #526D82;
+    font-weight: 300px;
+}
+
+/* 將動畫應用到圖片 */
+.experience-image {
+    animation: slideIn 5s ease forwards; /* 使用滑入動畫 */
+}
+
+/* 將動畫應用到圖片 */
+.experience-image1 {
+    animation: slideIn 8s ease forwards; /* 使用滑入動畫 */
+    float: left;
+}
+
+.txt{
+    text-align: center;
+    color: rgb(205, 165, 112);
+}
+
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 70%; /* 將寬度縮小，增加兩側空白 */
+    margin: 0 auto; /* 水平居中 */
+}
+
+.experience-item {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* 減少圖片與文字的間距 */
+    justify-content: center;
+}
+
+.experience-image1 {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.experience-text {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.8; /* 調整行間距 */
+    align-self: center;
+    padding: 40px;
+}
+
+.experience-text2 {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.8; /* 調整行間距 */
+    align-self: center;
+    padding: 50px;
+}
+
+.experience-text1 {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.8; /* 調整行間距 */
+    align-self: center;
+}
+
+.contact-info{
+    display:flex;
+    flex-direction: row;   
+    justify-content: center; 
+    gap: 20px;
+    padding-bottom: 50px;
+    
+}
+.info-item{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.info-item img{
+    margin-right: 20px;
+    border-radius: 15px;
+    vertical-align: middle;
+
+}
+.info-item a{
+    text-align: left;
+    color: #555555 ;
+    font-weight: bold; /* 加粗文字 */
+}
+
+/* 其他样式保持不变 */
+
+@keyframes jump {
+    0% {
+        transform: translateY(0); /* 起始位置 */
+    }
+    50% {
+        transform: translateY(-5px); /* 向上移动5px */
+    }
+    100% {
+        transform: translateY(0); /* 回到起始位置 */
+    }
+}
+
+.contact-info a {
+    display: inline-block; /* 让链接块可以应用 transform */
+    transition: transform 0.2s; /* 平滑过渡 */
+}
+
+.contact-info a:hover {
+    animation: jump 0.5s ease; /* 应用跳动动画 */
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 42px;
+    padding: 10px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555555;
+    background-color: #f2f3f7;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    transition: background-color 0.3s; 
+    
+}
+   
+
+.form-control:focus {
+    background-color: #e0e0e0; 
+}
+
+.btn-send-message {
+    background-color: #526D82; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* 增加過渡效果 */
+}
+
+.btn-send-message:hover {
+    background-color: #40586D; 
+}
+
+.btn-send-message:active {
+    background-color: #2c3e50; 
+    outline: none;
+}
+.clearfix{
+    clear: both;
+}
+
+
+@media screen and (max-width: 800px){
+    article,aside{
+        float: none;
+        width: 100%;
+    }
+    .card{
+        padding: 10px;
+        margin: 15px 0px;
+    }
+    img{
+        max-width: 100%;
+        height: 90%;
+    }
+
+}
